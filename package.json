@@ -1,0 +1,31 @@
+{
+  "name": "utools-plugin-selfcheck",
+  "version": "1.0.0",
+  "description": "uTools 插件提交审核前自查 Agent Skill：按官方审核标准静态检查插件，输出必须整改 / 建议整改报告",
+  "keywords": [
+    "utools",
+    "agent-skill",
+    "skill",
+    "claude-code",
+    "cursor",
+    "copilot",
+    "plugin-review"
+  ],
+  "license": "MIT",
+  "author": "uTools",
+  "bin": {
+    "utools-plugin-selfcheck": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
