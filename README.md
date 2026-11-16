@@ -8,32 +8,22 @@ uTools 插件**提交审核前自查**的 Agent Skill。按 uTools 插件市场�
 
 ## 安装
 
-需要 Node.js 16 及以上。
+需要 Node.js 18 及以上，用 [skills](https://github.com/vercel-labs/skills) 安装：
 
 ```bash
-npx utools-plugin-selfcheck
+npx skills add uTools-Labs/utools-plugin-selfcheck-skill
 ```
 
-默认自动识别本机已有的 Cursor（`~/.cursor`）、Claude Code（`~/.claude`）、GitHub Copilot（`~/.copilot`），都装到个人级 skills 目录；一个都没有时装到 `~/.agents/skills`。
-
-指定工具或装到项目里：
+按提示选择要安装到的 AI 工具（Cursor、Claude Code、GitHub Copilot 等）和安装范围即可。常用参数：
 
 ```bash
-npx utools-plugin-selfcheck -t claude,cursor      # 指定工具
-npx utools-plugin-selfcheck -t copilot -p         # 当前项目的 .github/skills
-npx utools-plugin-selfcheck -d ./my/skills        # 指定目录
-npx utools-plugin-selfcheck -f                    # 覆盖升级到新版本
-npx utools-plugin-selfcheck uninstall -t all      # 卸载
+npx skills add uTools-Labs/utools-plugin-selfcheck-skill -g          # 装到个人目录，所有项目可用
+npx skills add uTools-Labs/utools-plugin-selfcheck-skill -a cursor   # 只装到指定工具
+npx skills update utools-plugin-selfcheck                            # 升级到最新版
+npx skills remove utools-plugin-selfcheck                            # 卸载
 ```
 
-| 工具 | `-t` | 个人级目录 | 项目级目录（`-p`） |
-| --- | --- | --- | --- |
-| Cursor | `cursor` | `~/.cursor/skills/` | `.cursor/skills/` |
-| Claude Code | `claude` | `~/.claude/skills/` | `.claude/skills/` |
-| VS Code + GitHub Copilot | `copilot` | `~/.copilot/skills/` | `.github/skills/` |
-| 通用 Agent Skills | `agents` | `~/.agents/skills/` | `.agents/skills/` |
-
-也可以手动安装：把包里的 `skills/utools-plugin-selfcheck/` 目录复制到上表任一目录，目录名必须是 `utools-plugin-selfcheck`。
+也可以手动安装：把本仓库的 `skills/utools-plugin-selfcheck/` 目录复制到 AI 工具的 skills 目录（如 `~/.cursor/skills/`、`~/.claude/skills/`、`.github/skills/`），目录名必须是 `utools-plugin-selfcheck`。
 
 ## 使用
 
